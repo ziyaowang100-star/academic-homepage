@@ -16,7 +16,7 @@ const {
   canonical = new URL(Astro.url.pathname, profile.canonicalUrl).toString()
 } = Astro.props;
 
-const withBase = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
 
 const personJsonLd = {
   "@context": "https://schema.org",

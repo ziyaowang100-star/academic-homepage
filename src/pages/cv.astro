@@ -7,7 +7,7 @@ const timelineItems = [
   ...profile.education.map((item) => ({ ...item, kind: "Education", title: item.degree, detail: item.supervisor ? `Supervisor: ${item.supervisor}` : "" })),
   ...profile.experience.map((item) => ({ ...item, kind: "Experience", title: item.role, detail: `Supervisor: ${item.supervisor}` }))
 ];
-const withBase = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
 ---
 
 <BaseLayout title="CV | Ziyao Wang" description="Academic CV of Ziyao Wang, Postdoctoral Researcher in Electrical Engineering at the University of Macau.">
