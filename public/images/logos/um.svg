@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="University of Macau logo mark">
+  <circle cx="32" cy="32" r="30" fill="#fefce8" stroke="#b45309" stroke-width="3"/>
+  <path d="M20 44V22l12 10 12-10v22" fill="none" stroke="#b45309" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="32" cy="32" r="5" fill="#dc2626"/>
+  <text x="32" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="#92400e">UM</text>
+</svg>

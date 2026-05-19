@@ -1,0 +1,80 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PublicationCard from "@components/PublicationCard.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+import { publications } from "@data/publications";
+
+const sortedPublications = [...publications].sort(
+  (a, b) => b.year - a.year || Number(b.selected) - Number(a.selected) || a.title.localeCompare(b.title)
+);
+const years = [...new Set(sortedPublications.map((publication) => publication.year))].sort((a, b) => b - a);
+const venues = [...new Set(sortedPublications.map((publication) => publication.venue))].sort();
+const tags = [...new Set(sortedPublications.flatMap((publication) => publication.tags))].sort();
+---
+
+<BaseLayout title="Publications | Ziyao Wang" description="Publications by Ziyao Wang on Distribution Network Planning, Smart Distribution Networks, Reliability Assessment, Resilience Assessment, and Artificial Intelligence for Power Systems.">
+  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <SectionTitle eyebrow="Research Output" title="Publications" description="Filter publications by year, journal, or research topic. Publication metadata is maintained in src/data/publications.ts." />
+
+    <div class="mb-8 grid gap-4 rounded-lg border border-slate-200 bg-slate-50 p-4 md:grid-cols-3">
+      <label class="text-sm font-medium text-slate-700">
+        Year
+        <select id="year-filter" class="mt-2 w-full rounded border border-slate-300 bg-white px-3 py-2 text-sm">
+          <option value="all">All years</option>
+          {years.map((year) => <option value={year}>{year}</option>)}
+        </select>
+      </label>
+      <label class="text-sm font-medium text-slate-700">
+        Journal
+        <select id="venue-filter" class="mt-2 w-full rounded border border-slate-300 bg-white px-3 py-2 text-sm">
+          <option value="all">All journals</option>
+          {venues.map((venue) => <option value={venue}>{venue}</option>)}
+        </select>
+      </label>
+      <label class="text-sm font-medium text-slate-700">
+        Topic
+        <select id="topic-filter" class="mt-2 w-full rounded border border-slate-300 bg-white px-3 py-2 text-sm">
+          <option value="all">All topics</option>
+          {tags.map((tag) => <option value={tag}>{tag}</option>)}
+        </select>
+      </label>
+    </div>
+
+    <div id="publication-list" class="rounded-lg border border-slate-200 bg-white px-5 shadow-soft">
+      {sortedPublications.map((publication) => (
+        <div class="publication-item" data-year={publication.year} data-venue={publication.venue} data-tags={publication.tags.join("|")}>
+          <PublicationCard publication={publication} />
+        </div>
+      ))}
+    </div>
+    <p id="empty-state" class="mt-8 hidden rounded-lg border border-slate-200 bg-slate-50 p-5 text-sm text-slate-600">No publications match the selected filters.</p>
+  </section>
+
+  <script>
+    const yearFilter = document.querySelector<HTMLSelectElement>("#year-filter");
+    const venueFilter = document.querySelector<HTMLSelectElement>("#venue-filter");
+    const topicFilter = document.querySelector<HTMLSelectElement>("#topic-filter");
+    const items = Array.from(document.querySelectorAll<HTMLElement>(".publication-item"));
+    const emptyState = document.querySelector<HTMLElement>("#empty-state");
+
+    function applyFilters() {
+      const year = yearFilter?.value ?? "all";
+      const venue = venueFilter?.value ?? "all";
+      const topic = topicFilter?.value ?? "all";
+      let visibleCount = 0;
+
+      items.forEach((item) => {
+        const matchesYear = year === "all" || item.dataset.year === year;
+        const matchesVenue = venue === "all" || item.dataset.venue === venue;
+        const matchesTopic = topic === "all" || (item.dataset.tags ?? "").split("|").includes(topic);
+        const visible = matchesYear && matchesVenue && matchesTopic;
+        item.classList.toggle("hidden", !visible);
+        if (visible) visibleCount += 1;
+      });
+
+      emptyState?.classList.toggle("hidden", visibleCount > 0);
+    }
+
+    [yearFilter, venueFilter, topicFilter].forEach((filter) => filter?.addEventListener("change", applyFilters));
+  </script>
+</BaseLayout>

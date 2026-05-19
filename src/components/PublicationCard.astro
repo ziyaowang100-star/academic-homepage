@@ -1,0 +1,34 @@
+---
+import type { Publication } from "@data/publications";
+
+interface Props {
+  publication: Publication;
+}
+
+const { publication } = Astro.props;
+
+const markedAuthors = publication.authors.replace(
+  /(Ziyao Wang\*?)/g,
+  '<strong class="font-semibold text-slate-950 underline decoration-accent-600 decoration-2 underline-offset-4">$1</strong>'
+);
+---
+
+<article class="border-b border-slate-200 bg-white py-4">
+  <p class="text-sm leading-7 text-slate-700">
+    <span set:html={markedAuthors}></span>.{" "}
+    <a class="font-semibold text-slate-950 underline decoration-accent-100 decoration-2 underline-offset-4 transition hover:text-accent-700 hover:decoration-accent-600" href={publication.paperLink} target="_blank" rel="noreferrer">
+      {publication.title}
+    </a>
+    . <em>{publication.venue}</em>
+    {publication.volume && `, ${publication.volume}`}
+    {publication.pages && `, ${publication.pages}`}
+    . {publication.year}.
+    {publication.type === "Chinese Journal" && <span> (in Chinese).</span>}
+    {publication.status === "Accepted" && <span class="ml-2 rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-600">Accepted</span>}
+  </p>
+  <div class="mt-2 flex flex-wrap gap-2">
+    {publication.tags.map((tag) => (
+      <span class="rounded border border-slate-200 px-2 py-1 text-xs text-slate-600">{tag}</span>
+    ))}
+  </div>
+</article>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="National University of Singapore logo mark">
+  <circle cx="32" cy="32" r="30" fill="#fff7ed" stroke="#d97706" stroke-width="3"/>
+  <path d="M18 39c5-11 9-18 14-18s9 7 14 18" fill="none" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
+  <path d="M22 40h20M25 47h14" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+  <text x="32" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="#1e3a8a">NUS</text>
+</svg>

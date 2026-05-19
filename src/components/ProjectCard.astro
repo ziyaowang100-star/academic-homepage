@@ -1,0 +1,21 @@
+---
+import type { Project } from "@data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="border-b border-slate-200 bg-white py-4">
+  <p class="text-sm leading-7 text-slate-700">
+    <span class="font-semibold text-slate-950">{project.organization}</span>.{" "}
+    <span class="font-medium text-slate-900">{project.title}</span>. {project.description}
+  </p>
+  <div class="mt-2 flex flex-wrap gap-2">
+    {project.tags.map((tag) => (
+      <span class="rounded border border-slate-200 px-2 py-1 text-xs text-slate-600">{tag}</span>
+    ))}
+  </div>
+</article>

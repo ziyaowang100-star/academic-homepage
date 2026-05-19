@@ -1,0 +1,15 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+import { projects } from "@data/projects";
+---
+
+<BaseLayout title="Projects | Ziyao Wang" description="Research and engineering projects by Ziyao Wang on smart distribution networks, digital planning, renewable energy integration, and power system planning.">
+  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <SectionTitle eyebrow="Research Translation" title="Projects" />
+    <div class="rounded-lg border border-slate-200 bg-white px-5 shadow-soft">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</BaseLayout>

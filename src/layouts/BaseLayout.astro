@@ -1,0 +1,68 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { profile } from "@data/profile";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = `${profile.name} | ${profile.title} at ${profile.affiliation}`,
+  description = "Personal academic homepage of Ziyao Wang, Postdoctoral Researcher in Electrical Engineering at the University of Macau, focused on distribution network planning, reliability assessment, resilience assessment, and artificial intelligence for power systems.",
+  canonical = new URL(Astro.url.pathname, profile.canonicalUrl).toString()
+} = Astro.props;
+
+const withBase = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.title,
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: profile.affiliation
+  },
+  worksFor: {
+    "@type": "CollegeOrUniversity",
+    name: profile.affiliation
+  },
+  knowsAbout: profile.keywords,
+  url: canonical,
+  email: profile.email,
+  sameAs: Object.values(profile.links).filter((link) => link.startsWith("http"))
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={profile.keywords.join(", ")} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(profile.image.replace(/^\//, ""), profile.canonicalUrl).toString()} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+  </head>
+  <body class="min-h-screen bg-white text-slate-800 antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
