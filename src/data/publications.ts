@@ -17,7 +17,7 @@ export type Publication = {
 export const publications: Publication[] = [
   {
     title: "A Fast Calculation Method for Assessing Line Fault Outage Factor in Cascading Failures",
-    authors: "Pengyi Fan, Tao Yu, Zhenning Pan, Ziyao Wang, Yufeng Wu, Wencong Xiao",
+    authors: "Pengyi Fan, Tao Yu, Zhenning Pan, Ziyao Wang*, Yufeng Wu, Wencong Xiao",
     venue: "2026 IEEE PES International Meeting (PES IM), Hong Kong, Hong Kong",
     year: 2026,
     pages: "1-5",
