@@ -16,6 +16,20 @@ export type Publication = {
 
 export const publications: Publication[] = [
   {
+    title: "A Fast Calculation Method for Assessing Line Fault Outage Factor in Cascading Failures",
+    authors: "Pengyi Fan, Tao Yu, Zhenning Pan, Ziyao Wang, Yufeng Wu, Wencong Xiao",
+    venue: "2026 IEEE PES International Meeting (PES IM), Hong Kong, Hong Kong",
+    year: 2026,
+    pages: "1-5",
+    status: "Published",
+    type: "Conference",
+    tags: ["Cascading Failures", "Line Fault Outage Factor", "Fast Calculation", "Power Systems"],
+    doi: "https://doi.org/10.1109/PESIM67009.2026.11438442",
+    paperLink: "https://doi.org/10.1109/PESIM67009.2026.11438442",
+    codeLink: "#",
+    selected: true
+  },
+  {
     title: "Mechanism Design for Demand Response in Flexible Data Center Loads via Indifference Sets",
     authors: "Ziyao Wang, Minghao Wang*, Kashem M. Muttaqi, Chang Liu, Tao Yu",
     venue: "2026 IEEE Industry Application Society Annual Meeting (IAS), Vancouver, CA",
