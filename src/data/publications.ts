@@ -116,21 +116,6 @@ export const publications: Publication[] = [
     selected: true
   },
   {
-    title: "Back/Forward Sweep Power Flow Calculation Method with Leaf Nodes Recursive Pruning",
-    authors: "Fengsheng Chen, Zong'an Yu, Ziyao Wang, Wencong Xiao, Yufeng Wu, Zhenning Pan",
-    venue: "Journal of Shanghai Jiao Tong University",
-    year: 2026,
-    volume: "60(4)",
-    pages: "695-703",
-    status: "Published",
-    type: "Chinese Journal",
-    tags: ["Power Flow Calculation", "Distribution Networks", "Algorithm"],
-    doi: "#",
-    paperLink: "https://xuebao.sjtu.edu.cn/CN/10.16183/j.cnki.jsjtu.2023.423",
-    codeLink: "#",
-    selected: false
-  },
-  {
     title: "Optimal Double Q AC-DC Hybrid Distribution System Planning with Explicit Topology-variable-based Reliability Assessment",
     authors: "Ziyao Wang, Lipeng Zhong, Zhenning Pan, et al.",
     venue: "Applied Energy",
