@@ -16,6 +16,19 @@ export type Publication = {
 
 export const publications: Publication[] = [
   {
+    title: "Mechanism Design for Demand Response in Flexible Data Center Loads via Indifference Sets",
+    authors: "Ziyao Wang, Minghao Wang*, Kashem M. Muttaqi, Chang Liu, Tao Yu",
+    venue: "2026 IEEE Industry Application Society Annual Meeting (IAS), Vancouver, CA",
+    year: 2026,
+    status: "Accepted",
+    type: "Conference",
+    tags: ["Demand Response", "Flexible Data Center Loads", "Mechanism Design", "Indifference Sets"],
+    doi: "#",
+    paperLink: "#",
+    codeLink: "#",
+    selected: true
+  },
+  {
     title: "Reliability-driven SOP Siting and Sizing under Multi-line Failure Scenarios in Resource-complementary Island Microgrids",
     authors: "Ziyao Wang, Yingrui Zhao, Wei Chen, Yusi Cheng, Jimmy Chih-Hsien Peng",
     venue: "IEEE Transactions on Sustainable Computing",
