@@ -161,20 +161,6 @@ export const publications: Publication[] = [
     selected: false
   },
   {
-    title: "Reliability Assessment of Cyber-Physical Distribution Systems Based on Distributed Feeder Automation",
-    authors: "Ziyao Wang, Qingquan Luo, Yu Tao, Shuo Huang, Zhengming Yang, Zhifeng Zhang",
-    venue: "Electric Power Automation Equipment",
-    year: 2020,
-    volume: "40(12)",
-    status: "Published",
-    type: "Chinese Journal",
-    tags: ["Reliability Assessment", "Cyber-Physical Systems", "Distribution Automation"],
-    doi: "#",
-    paperLink: "https://www.epae.cn/dlzdhsb/ch/reader/view_abstract.aspx?file_no=202012008&flag=1",
-    codeLink: "#",
-    selected: false
-  },
-  {
     title: "Double Q Planning Model for Medium Voltage Distribution Network Based on Elite Ant-Q Algorithm",
     authors: "Ziyao Wang, Junbin Chen, Dan Lin, et al.",
     venue: "Electric Power Automation Equipment",
