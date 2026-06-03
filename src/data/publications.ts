@@ -204,7 +204,7 @@ export const publications: Publication[] = [
   },
   {
     title: "Key Technologies of Graph-Model-Data Fusion Supporting Digital Planning of New-Type Distribution Networks",
-    authors: "Yu Tao, Ziyao Wang, Wencong Xiao, Zhenning Pan, Yufeng Wu, Rongbin Wei, Jingwen Li",
+    authors: "Yu Tao, Ziyao Wang*, Wencong Xiao, Zhenning Pan, Yufeng Wu, Rongbin Wei, Jingwen Li",
     venue: "Automation of Electric Power Systems",
     year: 2024,
     volume: "48(6)",
