@@ -37,17 +37,34 @@ const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, ""
       </ol>
     </section>
 
-    <div class="mt-8 grid gap-8 lg:grid-cols-3">
-      <section class="rounded-lg border border-slate-200 bg-white p-5 shadow-soft">
-        <h2 class="text-xl font-semibold text-slate-950">Patents</h2>
-        <ul class="mt-5 space-y-3 text-sm leading-6 text-slate-600">
-          {profile.patents.map((item) => <li>{item}</li>)}
-        </ul>
-      </section>
+    <section class="mt-8 rounded-lg border border-slate-200 bg-white p-5 shadow-soft">
+      <h2 class="text-xl font-semibold text-slate-950">Authorized Invention Patents</h2>
+      <ol class="mt-5 space-y-5 text-sm leading-6 text-slate-600">
+        {profile.patents.map((item, index) => (
+          <li class="grid gap-3 border-b border-slate-200 pb-5 last:border-b-0 last:pb-0 sm:grid-cols-[3rem_1fr]">
+            <span class="font-semibold tabular-nums text-accent-700">[{index + 1}]</span>
+            <div>
+              <p class="font-semibold text-slate-950">{item.title}</p>
+              <p class="mt-1">Inventors: {item.inventors}</p>
+              <p class="mt-1">Assignee: {item.assignee}</p>
+              <p class="mt-1">
+                {item.jurisdiction}, {item.status}. Application date: {item.applicationDate}; grant date: {item.grantDate}.
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-2">
       <section class="rounded-lg border border-slate-200 bg-white p-5 shadow-soft">
         <h2 class="text-xl font-semibold text-slate-950">Book</h2>
         <ul class="mt-5 space-y-3 text-sm leading-6 text-slate-600">
-          {profile.books.map((item) => <li>{item}</li>)}
+          {profile.books.map((item) => (
+            <li>
+              {item.authors}. <span class="font-semibold text-slate-950">{item.title}</span>. {item.publisher}. {item.type}.
+            </li>
+          ))}
         </ul>
       </section>
       <section class="rounded-lg border border-slate-200 bg-white p-5 shadow-soft">

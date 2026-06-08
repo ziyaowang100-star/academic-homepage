@@ -74,11 +74,86 @@ export const profile = {
     }
   ],
   patents: [
-    "Ziyao Wang, Tao Yu. A Distribution Network Planning Method Considering Topological Constraints of Connection Modes. CN 110197302 B, Granted.",
-    "Junxi Tang, Junxiao Zhang, Chong Gao, Huazhen Cao, Ziyao Wang. A Distribution Network Wiring Line Planning Method, Device, and Equipment. Granted."
+    {
+      title: "基于专家示范指导强化学习的灾后配电网供电恢复方法",
+      inventors: "萧文聪; 陈俊斌; 余涛; 罗庆全; 潘振宁; 王梓耀; 吴毓峰; 黄展鸿; 陈宗源; 李庆健",
+      assignee: "华南理工大学",
+      jurisdiction: "中国专利",
+      status: "发明授权",
+      applicationDate: "2024-07-30",
+      grantDate: "2025-11-07"
+    },
+    {
+      title: "一种基于补偿法的全纯嵌入电力系统安全校核方法",
+      inventors: "严雯; 王梓耀; 余涛; 潘振宁",
+      assignee: "华南理工大学",
+      jurisdiction: "中国专利",
+      status: "发明授权",
+      applicationDate: "2024-10-29",
+      grantDate: "2025-10-03"
+    },
+    {
+      title: "一种智能调控任务链生成方法、装置、电子设备及介质",
+      inventors: "冯思博; 余涛; 潘振宁; 王梓耀",
+      assignee: "华南理工大学",
+      jurisdiction: "中国专利",
+      status: "发明授权",
+      applicationDate: "2024-09-04",
+      grantDate: "2025-09-30"
+    },
+    {
+      title: "基于重叠滑窗机制与YOLOV4的电网接线图图元识别方法",
+      inventors: "罗庆全; 余涛; 王梓耀; 萧文聪; 王艺澎",
+      assignee: "华南理工大学",
+      jurisdiction: "中国专利",
+      status: "发明授权",
+      applicationDate: "2021-12-23",
+      grantDate: "2024-09-13"
+    },
+    {
+      title: "一种自动识别电力系统厂站接线图连接关系的方法",
+      inventors: "萧文聪; 余涛; 王梓耀; 王艺澎; 罗庆全",
+      assignee: "华南理工大学",
+      jurisdiction: "中国专利",
+      status: "发明授权",
+      applicationDate: "2021-12-23",
+      grantDate: "2024-04-05"
+    },
+    {
+      title: "针对电网接线图文字的识别方法",
+      inventors: "王艺澎; 余涛; 王梓耀; 罗庆全; 萧文聪",
+      assignee: "华南理工大学",
+      jurisdiction: "中国专利",
+      status: "发明授权",
+      applicationDate: "2021-12-23",
+      grantDate: "2023-04-25"
+    },
+    {
+      title: "一种配电网接线线路的规划方法、装置及设备",
+      inventors: "唐俊熙; 张俊潇; 高崇; 曹华珍; 王梓耀; 吴亚雄; 王天霖; 余涛; 何璇; 李浩; 黄烨; 陈沛东; 李阳",
+      assignee: "广东电网有限责任公司; 广东电网有限责任公司电网规划研究中心; 华南理工大学",
+      jurisdiction: "中国专利",
+      status: "发明授权",
+      applicationDate: "2019-04-24",
+      grantDate: "2023-01-31"
+    },
+    {
+      title: "一种考虑接线模式拓扑约束的配电网规划方法",
+      inventors: "王梓耀; 余涛",
+      assignee: "华南理工大学",
+      jurisdiction: "中国专利",
+      status: "发明授权",
+      applicationDate: "2019-05-30",
+      grantDate: "2021-06-08"
+    }
   ],
   books: [
-    "Tao Yu, Ziyao Wang, Liming Sun, et al. Intelligent Planning of New-Type Distribution Networks. Science Press."
+    {
+      title: "Intelligent Planning of New-Type Distribution Networks",
+      authors: "Tao Yu, Ziyao Wang, Liming Sun, et al.",
+      publisher: "Science Press",
+      type: "Monograph"
+    }
   ],
   service: [
     "Reviewer for IEEE Transactions on Power Systems",
