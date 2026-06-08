@@ -3,14 +3,10 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import PublicationCard from "@components/PublicationCard.astro";
 import SectionTitle from "@components/SectionTitle.astro";
 import { publications } from "@data/publications";
-import { profile } from "@data/profile";
 
 const sortedPublications = [...publications].sort(
   (a, b) => b.year - a.year || Number(b.selected) - Number(a.selected) || a.title.localeCompare(b.title)
 );
-const latestYear = sortedPublications[0]?.year;
-const totalPublications = sortedPublications.length;
-const selectedCount = sortedPublications.filter((publication) => publication.selected).length;
 const groupConfig = [
   {
     id: "journal-papers",
@@ -35,36 +31,7 @@ const groupConfig = [
 
 <BaseLayout title="Publications | Ziyao Wang" description="Publications by Ziyao Wang on Distribution Network Planning, Smart Distribution Networks, Reliability Assessment, Resilience Assessment, and Artificial Intelligence for Power Systems.">
   <section class="mx-auto min-w-0 max-w-6xl overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
-    <div class="flex min-w-0 flex-col gap-6 border-b border-slate-200 pb-8 lg:flex-row lg:items-end lg:justify-between">
-      <SectionTitle
-        eyebrow="Research Output"
-        title="Publications"
-        description="A curated publication list organized by paper type. For citation metrics and the most recent indexing updates, please visit Google Scholar."
-      />
-      <a
-        href={profile.links.googleScholar}
-        target="_blank"
-        rel="noreferrer"
-        class="inline-flex w-fit items-center justify-center rounded border border-accent-100 bg-accent-50 px-4 py-2 text-sm font-semibold text-accent-700 transition hover:border-accent-600 hover:bg-white"
-      >
-        Google Scholar
-      </a>
-    </div>
-
-    <div class="grid min-w-0 gap-3 py-8 sm:grid-cols-3">
-      <div class="border-l-2 border-accent-600 bg-slate-50 px-4 py-3">
-        <p class="text-2xl font-semibold text-slate-950">{totalPublications}</p>
-        <p class="mt-1 text-xs font-semibold uppercase tracking-widest text-slate-500">Total papers</p>
-      </div>
-      <div class="border-l-2 border-accent-600 bg-slate-50 px-4 py-3">
-        <p class="text-2xl font-semibold text-slate-950">{selectedCount}</p>
-        <p class="mt-1 text-xs font-semibold uppercase tracking-widest text-slate-500">Selected works</p>
-      </div>
-      <div class="border-l-2 border-accent-600 bg-slate-50 px-4 py-3">
-        <p class="text-2xl font-semibold text-slate-950">{latestYear}</p>
-        <p class="mt-1 text-xs font-semibold uppercase tracking-widest text-slate-500">Latest year</p>
-      </div>
-    </div>
+    <SectionTitle eyebrow="Research Output" title="Publications" />
 
     <div class="min-w-0 space-y-10">
       {groupConfig.map((group) => (
