@@ -1,0 +1,144 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+
+const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
+
+const researchTopics = [
+  {
+    title: "Digital Planning Platform for Smart Distribution Networks",
+    image: "/images/research/research-outcomes-summary.png",
+    alt: "Summary of research outcomes for digital power distribution system planning",
+    caption: "Engineering-oriented outcomes connecting CIM/GIS modeling, wiring diagram recognition, planning analysis, and decision support.",
+    points: [
+      "Built a practical planning workflow from wiring diagram recognition and spatial load forecasting to database-driven network analysis.",
+      "Developed intelligent planning modules for AC/DC, low-carbon, flexible, and CPS-coordinated power distribution systems.",
+      "Supported real engineering pilots for distribution network planning with automatic modeling and human-in-the-loop scheme recommendation."
+    ]
+  },
+  {
+    title: "Explicit Reliability Modeling and Optimization",
+    image: "/images/research/explicit-reliability-efficiency.png",
+    alt: "Explicit reliability assessment efficiency comparison against Monte Carlo sampling",
+    caption: "Explicit reliability assessment improves computational efficiency while keeping reliability indices consistent with simulation results.",
+    points: [
+      "Proposed topology-variable-based explicit reliability assessment models for distribution networks.",
+      "Transformed reliability calculation into optimization-compatible formulations for switch planning and network design.",
+      "Reduced dependence on time-consuming Monte Carlo sampling, enabling reliability-aware planning at larger network scales."
+    ]
+  },
+  {
+    title: "Flexible AC/DC Distribution Network Planning",
+    image: "/images/research/acdc-distribution-planning.png",
+    alt: "Comparison of AC/DC, AC, and DC flexible distribution network planning solutions",
+    caption: "Planning comparisons show how AC/DC solutions balance investment cost and expected energy not supplied.",
+    points: [
+      "Formulated planning models for flexible AC/DC distribution networks with explicit reliability constraints.",
+      "Compared AC/DC, AC, and DC planning schemes to reveal economy-reliability tradeoffs under distributed energy integration.",
+      "Linked network topology, converter placement, and reliability indices in a unified planning decision model."
+    ]
+  },
+  {
+    title: "Resilience Enhancement under Heterogeneous Faults",
+    image: "/images/research/tri-layer-resilience.png",
+    alt: "Tri-layer resilience enhancement for flexible distribution networks under multiple heterogeneous faults",
+    caption: "Multi-stage fault modeling captures degradation, remote isolation, and service restoration for post-disaster planning.",
+    points: [
+      "Modeled multiple heterogeneous faults across degradation, remote isolation, and service restoration stages.",
+      "Designed tri-layer synergized resilience enhancement methods for flexible distribution networks.",
+      "Studied how smart switches and SOPs reduce load loss and improve post-disaster recovery performance."
+    ]
+  }
+];
+---
+
+<BaseLayout title="Research | Ziyao Wang" description="Research highlights of Ziyao Wang on digital planning, explicit reliability assessment, flexible distribution network planning, and resilience enhancement for smart distribution networks.">
+  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <SectionTitle
+      eyebrow="Research"
+      title="Research Highlights"
+      description="My research develops model-based, optimization-compatible, and AI-assisted methods for planning reliable, resilient, and flexible distribution networks."
+    />
+
+    <figure class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft">
+      <img
+        src={withBase("/images/research/digital-pdn-platform.png")}
+        alt="Project research workflow for intelligent distribution network planning"
+        class="aspect-video w-full bg-slate-50 object-contain"
+        width="1920"
+        height="1080"
+        loading="eager"
+      />
+      <figcaption class="border-t border-slate-200 px-5 py-4 text-sm leading-6 text-slate-600">
+        A digital planning workflow integrating wiring diagram recognition, spatial load forecasting, CIM/GIS data parsing,
+        intelligent network analysis, planning scheme recommendation, and human-in-the-loop planning.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="border-y border-slate-200 bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <div class="grid gap-5 md:grid-cols-3">
+        <div class="rounded-lg border border-slate-200 bg-white p-5 shadow-soft">
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent-700">Focus 01</p>
+          <h3 class="mt-3 text-xl font-semibold tracking-tight text-slate-950">Digital Planning</h3>
+          <p class="mt-3 text-sm leading-6 text-slate-600">
+            From power grid drawings and GIS/CIM files to automatic modeling, analysis, and decision support.
+          </p>
+        </div>
+        <div class="rounded-lg border border-slate-200 bg-white p-5 shadow-soft">
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent-700">Focus 02</p>
+          <h3 class="mt-3 text-xl font-semibold tracking-tight text-slate-950">Explicit Reliability</h3>
+          <p class="mt-3 text-sm leading-6 text-slate-600">
+            Reliability indices are embedded directly into mathematical planning models for scalable optimization.
+          </p>
+        </div>
+        <div class="rounded-lg border border-slate-200 bg-white p-5 shadow-soft">
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent-700">Focus 03</p>
+          <h3 class="mt-3 text-xl font-semibold tracking-tight text-slate-950">Flexible Resilience</h3>
+          <p class="mt-3 text-sm leading-6 text-slate-600">
+            Flexible resources, smart switches, and SOPs are coordinated to improve post-fault restoration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="space-y-12">
+      {researchTopics.map((topic, index) => (
+        <article class="grid gap-6 border-b border-slate-200 pb-12 last:border-b-0 last:pb-0 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-center">
+          <figure class:list={[
+            "overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft",
+            index % 2 === 1 ? "lg:order-2" : ""
+          ]}>
+            <img
+              src={withBase(topic.image)}
+              alt={topic.alt}
+              class="aspect-video w-full bg-slate-50 object-contain"
+              width="1920"
+              height="1080"
+              loading="lazy"
+            />
+            <figcaption class="border-t border-slate-200 px-4 py-3 text-xs leading-5 text-slate-500">
+              {topic.caption}
+            </figcaption>
+          </figure>
+
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-widest text-accent-700">Research Topic {String(index + 1).padStart(2, "0")}</p>
+            <h2 class="mt-3 text-2xl font-semibold tracking-tight text-slate-950">{topic.title}</h2>
+            <ul class="mt-5 space-y-3 text-sm leading-6 text-slate-600">
+              {topic.points.map((point) => (
+                <li class="flex gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent-700" aria-hidden="true"></span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
