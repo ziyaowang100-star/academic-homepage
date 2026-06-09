@@ -282,7 +282,7 @@ export const publications: Publication[] = [
     selected: false
   },
   {
-    title: "新型配电网数智化规划 (Digital-Intelligent Planning of New-Type Distribution Networks)",
+    title: "Digital-Intelligent Planning of New-Type Distribution Networks",
     authors: "Tao Yu, Ziyao Wang, Liming Sun, et al.",
     venue: "Science Press",
     year: 2025,
@@ -291,7 +291,7 @@ export const publications: Publication[] = [
     type: "Book",
     tags: ["Monograph", "Distribution Network Planning", "Digital Planning"],
     doi: "#",
-    paperLink: "https://www.96192.com/product/detail/1194860",
+    paperLink: "https://item.jd.com/14554729.html?uabt=872_12138_1_0&pcdk=nwDrWDceU_3EOtMesIX-ZdQLcg50FRlI-URULdpNtMk=.ZNqn.8PYs&cu=true&utm_source=lianmeng__10__kong__www.baidu.com&utm_medium=tuiguang&utm_campaign=t_1003608409_&utm_term=2b6154318f19214e9f41aaa747eb10fd",
     codeLink: "#",
     selected: false,
     isbn: "9787030820082"
