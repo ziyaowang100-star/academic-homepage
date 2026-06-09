@@ -25,6 +25,18 @@ const groupConfig = [
     title: "Chinese Journal Papers",
     prefix: "CN",
     publications: sortedPublications.filter((publication) => publication.type === "Chinese Journal")
+  },
+  {
+    id: "authorized-patents",
+    title: "Authorized Patents",
+    prefix: "P",
+    publications: sortedPublications.filter((publication) => publication.type === "Patent")
+  },
+  {
+    id: "books",
+    title: "Books",
+    prefix: "B",
+    publications: sortedPublications.filter((publication) => publication.type === "Book")
   }
 ].filter((group) => group.publications.length > 0);
 ---

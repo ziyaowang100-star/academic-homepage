@@ -5,13 +5,18 @@ export type Publication = {
   year: number;
   volume?: string;
   pages?: string;
-  status: "Published" | "Accepted";
-  type: "Journal" | "Conference" | "Chinese Journal";
+  status: "Published" | "Accepted" | "Granted";
+  type: "Journal" | "Conference" | "Chinese Journal" | "Patent" | "Book";
   tags: string[];
   doi: string;
   paperLink: string;
   codeLink: string;
   selected: boolean;
+  patentNumber?: string;
+  assignee?: string;
+  applicationDate?: string;
+  grantDate?: string;
+  isbn?: string;
 };
 
 export const publications: Publication[] = [
@@ -275,5 +280,156 @@ export const publications: Publication[] = [
     paperLink: "https://www.dlbh.net/dlbhen/ch/reader/view_abstract.aspx?file_no=20251511&flag=1",
     codeLink: "#",
     selected: false
+  },
+  {
+    title: "新型配电网数智化规划 (Digital-Intelligent Planning of New-Type Distribution Networks)",
+    authors: "Tao Yu, Ziyao Wang, Liming Sun, et al.",
+    venue: "Science Press",
+    year: 2025,
+    pages: "326 pp.",
+    status: "Published",
+    type: "Book",
+    tags: ["Monograph", "Distribution Network Planning", "Digital Planning"],
+    doi: "#",
+    paperLink: "https://www.96192.com/product/detail/1194860",
+    codeLink: "#",
+    selected: false,
+    isbn: "9787030820082"
+  },
+  {
+    title: "Post-disaster Power Distribution Network Power Supply Recovery Method Based on Expert Demonstration Guidance Reinforcement Learning",
+    authors: "Wencong Xiao, Junbin Chen, Tao Yu, Qingquan Luo, Zhenning Pan, Ziyao Wang, Yufeng Wu, Zhanhong Huang, Zongyuan Chen, Qingjian Li",
+    venue: "China Patent",
+    year: 2025,
+    status: "Granted",
+    type: "Patent",
+    tags: ["Authorized Invention Patent", "China Patent", "CN118971136B"],
+    doi: "#",
+    paperLink: "https://patents.google.com/patent/CN118971136B/en",
+    codeLink: "#",
+    selected: false,
+    patentNumber: "CN118971136B",
+    assignee: "South China University of Technology",
+    applicationDate: "2024-07-30",
+    grantDate: "2025-11-07"
+  },
+  {
+    title: "Holomorphic Embedding Power System Security Check Method Based on Compensation Method",
+    authors: "Wen Yan, Ziyao Wang, Tao Yu, Zhenning Pan",
+    venue: "China Patent",
+    year: 2025,
+    status: "Granted",
+    type: "Patent",
+    tags: ["Authorized Invention Patent", "China Patent", "CN119513463B"],
+    doi: "#",
+    paperLink: "https://patents.google.com/patent/CN119513463B/en",
+    codeLink: "#",
+    selected: false,
+    patentNumber: "CN119513463B",
+    assignee: "South China University of Technology",
+    applicationDate: "2024-10-29",
+    grantDate: "2025-10-03"
+  },
+  {
+    title: "Method, Device, Electronic Device, and Medium for Generating an Intelligent Control Task Chain",
+    authors: "Sibo Feng, Tao Yu, Zhenning Pan, Ziyao Wang",
+    venue: "China Patent",
+    year: 2025,
+    status: "Granted",
+    type: "Patent",
+    tags: ["Authorized Invention Patent", "China Patent", "CN119398364B"],
+    doi: "#",
+    paperLink: "https://patents.google.com/patent/CN119398364B/en",
+    codeLink: "#",
+    selected: false,
+    patentNumber: "CN119398364B",
+    assignee: "South China University of Technology",
+    applicationDate: "2024-09-04",
+    grantDate: "2025-09-30"
+  },
+  {
+    title: "Power Grid Wiring Diagram Primitive Recognition Method Based on Overlapping Sliding Window Mechanism and YOLOV4",
+    authors: "Qingquan Luo, Tao Yu, Ziyao Wang, Wencong Xiao, Yipeng Wang",
+    venue: "China Patent",
+    year: 2024,
+    status: "Granted",
+    type: "Patent",
+    tags: ["Authorized Invention Patent", "China Patent", "CN114359948B"],
+    doi: "#",
+    paperLink: "https://patents.google.com/patent/CN114359948B/en",
+    codeLink: "#",
+    selected: false,
+    patentNumber: "CN114359948B",
+    assignee: "South China University of Technology",
+    applicationDate: "2021-12-23",
+    grantDate: "2024-09-13"
+  },
+  {
+    title: "Method for Automatically Identifying Connection Relation of Power System Station Wiring Diagrams",
+    authors: "Wencong Xiao, Tao Yu, Ziyao Wang, Yipeng Wang, Qingquan Luo",
+    venue: "China Patent",
+    year: 2024,
+    status: "Granted",
+    type: "Patent",
+    tags: ["Authorized Invention Patent", "China Patent", "CN114842494B"],
+    doi: "#",
+    paperLink: "https://patents.google.com/patent/CN114842494B/en",
+    codeLink: "#",
+    selected: false,
+    patentNumber: "CN114842494B",
+    assignee: "South China University of Technology",
+    applicationDate: "2021-12-23",
+    grantDate: "2024-04-05"
+  },
+  {
+    title: "Identification Method for Characters of Power Grid Wiring Diagram",
+    authors: "Yipeng Wang, Tao Yu, Ziyao Wang, Qingquan Luo, Wencong Xiao",
+    venue: "China Patent",
+    year: 2023,
+    status: "Granted",
+    type: "Patent",
+    tags: ["Authorized Invention Patent", "China Patent", "CN114359949B"],
+    doi: "#",
+    paperLink: "https://patents.google.com/patent/CN114359949B/en",
+    codeLink: "#",
+    selected: false,
+    patentNumber: "CN114359949B",
+    assignee: "South China University of Technology",
+    applicationDate: "2021-12-23",
+    grantDate: "2023-04-25"
+  },
+  {
+    title: "Planning Method, Device, and Equipment for Distribution Network Wiring Lines",
+    authors: "Junxi Tang, Junxiao Zhang, Chong Gao, Huazhen Cao, Ziyao Wang, Yaxiong Wu, Tianlin Wang, Tao Yu, Xuan He, Hao Li, Ye Huang, Peidong Chen, Yang Li",
+    venue: "China Patent",
+    year: 2023,
+    status: "Granted",
+    type: "Patent",
+    tags: ["Authorized Invention Patent", "China Patent", "CN109936136B"],
+    doi: "#",
+    paperLink: "https://patents.google.com/patent/CN109936136B/en",
+    codeLink: "#",
+    selected: false,
+    patentNumber: "CN109936136B",
+    assignee: "Guangdong Power Grid Co., Ltd.; Guangdong Power Grid Co., Ltd. Power Grid Planning Research Center; South China University of Technology",
+    applicationDate: "2019-04-24",
+    grantDate: "2023-01-31"
+  },
+  {
+    title: "Power Distribution Network Planning Method Considering Wiring Mode Topology Constraints",
+    authors: "Ziyao Wang, Tao Yu",
+    venue: "China Patent",
+    year: 2021,
+    status: "Granted",
+    type: "Patent",
+    tags: ["Authorized Invention Patent", "China Patent", "CN110197302B"],
+    doi: "#",
+    paperLink: "https://patents.google.com/patent/CN110197302B/en",
+    codeLink: "#",
+    selected: false,
+    patentNumber: "CN110197302B",
+    assignee: "South China University of Technology",
+    applicationDate: "2019-05-30",
+    grantDate: "2021-06-08"
   }
 ];

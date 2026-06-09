@@ -17,6 +17,8 @@ const hasPaperLink = publication.paperLink && publication.paperLink !== "#";
 const hasDoiLink = publication.doi && publication.doi !== "#";
 const showDoiLink = hasDoiLink && publication.doi !== publication.paperLink;
 const wrapperClass = label ? "grid min-w-0 gap-3 sm:grid-cols-[3.25rem_1fr]" : "min-w-0";
+const isPatent = publication.type === "Patent";
+const isBook = publication.type === "Book";
 ---
 
 <article class="min-w-0 overflow-hidden border-b border-slate-200 bg-white py-5 last:border-b-0">
@@ -40,9 +42,25 @@ const wrapperClass = label ? "grid min-w-0 gap-3 sm:grid-cols-[3.25rem_1fr]" : "
         <span class="break-words font-semibold text-slate-950 [overflow-wrap:anywhere]">{publication.title}</span>
       )}<span>. </span><em>{publication.venue}</em><span>{publication.volume ? `, ${publication.volume}` : ""}{publication.pages ? `, ${publication.pages}` : ""}. {publication.year}.</span>{publication.type === "Chinese Journal" && <span> (in Chinese).</span>}</p>
 
+      {isPatent && (
+        <p class="mt-2 break-words text-sm leading-6 text-slate-600 [overflow-wrap:anywhere]">
+          {publication.patentNumber && <span>Patent No.: {publication.patentNumber}. </span>}
+          {publication.assignee && <span>Assignee: {publication.assignee}. </span>}
+          {publication.applicationDate && <span>Application date: {publication.applicationDate}. </span>}
+          {publication.grantDate && <span>Grant date: {publication.grantDate}.</span>}
+        </p>
+      )}
+
+      {isBook && publication.isbn && (
+        <p class="mt-2 text-sm leading-6 text-slate-600">ISBN: {publication.isbn}.</p>
+      )}
+
       <div class="mt-3 flex max-w-full flex-wrap items-center gap-2">
         {publication.status === "Accepted" && (
           <span class="rounded border border-amber-200 bg-amber-50 px-2 py-1 text-xs font-medium text-amber-800">Accepted</span>
+        )}
+        {publication.status === "Granted" && (
+          <span class="rounded border border-emerald-200 bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-800">Granted</span>
         )}
         {publication.tags.slice(0, 3).map((tag) => (
           <span class="max-w-full break-words rounded border border-slate-200 px-2 py-1 text-xs text-slate-600 [overflow-wrap:anywhere]">{tag}</span>
