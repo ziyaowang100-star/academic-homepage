@@ -1,3 +1,5 @@
+import { academicCommunity, journalReviewing } from "./service";
+
 export const profile = {
   name: "Ziyao Wang",
   title: "Postdoctoral Researcher",
@@ -146,11 +148,9 @@ export const profile = {
     }
   ],
   service: [
-    "Reviewer for IEEE Transactions on Power Systems",
-    "Reviewer for Applied Energy",
-    "Reviewer for International Journal of Electrical Power & Energy Systems",
-    "Founder of the Energy Systems Planning Group, an academic discussion group with more than 200 members",
-    "Shared power system knowledge through academic blogs with more than 100,000 reads"
+    ...journalReviewing.international.map((journal) => `Reviewer for ${journal}`),
+    ...journalReviewing.chineseLanguage.map((journal) => `Reviewer for ${journal}`),
+    ...academicCommunity
   ]
 };
 

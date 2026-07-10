@@ -1,0 +1,85 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+import { academicCommunity, graduateThesisMentoring, journalReviewing } from "@data/service";
+---
+
+<BaseLayout
+  title="Academic Service | Ziyao Wang"
+  description="Academic service by Ziyao Wang, including journal reviewing, graduate research collaboration, thesis supervision, and academic community engagement."
+>
+  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <SectionTitle
+      eyebrow="Service"
+      title="Academic Service"
+      description="Journal reviewing, graduate research collaboration, and thesis supervision."
+    />
+
+    <div class="border-y border-slate-200 bg-white">
+      <div class="grid gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-12">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-accent-700">Peer Review</p>
+          <h2 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Journal Reviewing</h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 md:gap-10">
+          <section>
+            <h3 class="text-sm font-semibold text-slate-950">International Journals</h3>
+            <ul class="mt-4 divide-y divide-slate-200 border-y border-slate-200">
+              {journalReviewing.international.map((journal) => (
+                <li class="flex gap-3 py-3 text-sm leading-6 text-slate-700">
+                  <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent-600"></span>
+                  <span>{journal}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="text-sm font-semibold text-slate-950">Chinese-Language Journals</h3>
+            <ul class="mt-4 divide-y divide-slate-200 border-y border-slate-200">
+              {journalReviewing.chineseLanguage.map((journal) => (
+                <li class="flex gap-3 py-3 text-sm leading-6 text-slate-700">
+                  <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent-600"></span>
+                  <span>{journal}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-slate-200 bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <div class="mb-6 max-w-3xl">
+        <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-accent-700">Mentoring</p>
+        <h2 class="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">Graduate Student Collaboration and Thesis Supervision</h2>
+      </div>
+
+      <ol class="divide-y divide-slate-200 border-y border-slate-200 bg-white">
+        {graduateThesisMentoring.map((item) => (
+          <li class="grid gap-2 px-4 py-5 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-6 sm:px-6">
+            <p class="font-semibold text-slate-950">{item.student}</p>
+            <p class="text-sm leading-7 text-slate-600"><cite class="not-italic">{item.thesis}</cite></p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid gap-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-12">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-accent-700">Engagement</p>
+        <h2 class="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Academic Community</h2>
+      </div>
+      <ul class="divide-y divide-slate-200 border-y border-slate-200">
+        {academicCommunity.map((item) => (
+          <li class="py-4 text-sm leading-7 text-slate-700">{item}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

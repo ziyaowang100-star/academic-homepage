@@ -52,11 +52,15 @@ Edit `src/data/profile.ts` to update:
 - Name, title, affiliation, department, and location
 - Bio and research interests
 - Education and research experience
-- Patents, book, academic service
+- Patents and book
 - Email and profile links
 - Canonical URL placeholder
 
 The project is currently configured for GitHub Pages at `https://ziyaowang100-star.github.io/academic-homepage/`. If you deploy to a different domain, update `src/data/profile.ts`, `astro.config.mjs`, and `public/robots.txt`.
+
+## Updating Academic Service
+
+Edit `src/data/service.ts` to update journal reviewing, graduate student collaboration and thesis supervision, or academic community activities. International and Chinese-language journals are maintained as separate lists.
 
 ## Adding a Publication
 
