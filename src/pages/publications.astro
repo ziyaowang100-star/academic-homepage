@@ -1,56 +1,12 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import PublicationCard from "@components/PublicationCard.astro";
+import PublicationList from "@components/PublicationList.astro";
 import SectionTitle from "@components/SectionTitle.astro";
-import { publications } from "@data/publications";
-
-const sortedPublications = [...publications].sort(
-  (a, b) => b.year - a.year || Number(b.selected) - Number(a.selected) || a.title.localeCompare(b.title)
-);
-const papers = sortedPublications.filter((publication) =>
-  ["Journal", "Conference", "Chinese Journal"].includes(publication.type)
-);
-const supplementaryGroups = [
-  {
-    id: "patents",
-    title: "Patents",
-    prefix: "P",
-    publications: sortedPublications.filter((publication) => publication.type === "Patent")
-  },
-  {
-    id: "books",
-    title: "Books",
-    prefix: "B",
-    publications: sortedPublications.filter((publication) => publication.type === "Book")
-  }
-].filter((group) => group.publications.length > 0);
 ---
 
 <BaseLayout title="Publications | Ziyao Wang" description="Publications by Ziyao Wang on Distribution Network Planning, Smart Distribution Networks, Reliability Assessment, Resilience Assessment, and Artificial Intelligence for Power Systems.">
   <section class="mx-auto min-w-0 max-w-6xl overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
     <SectionTitle eyebrow="Research Output" title="Publications" />
-
-    <div class="min-w-0 rounded-lg border border-slate-200 bg-white px-5 shadow-soft">
-      {papers.map((publication, index) => (
-        <PublicationCard publication={publication} label={`${index + 1}`} />
-      ))}
-    </div>
-
-    <div class="mt-10 min-w-0 space-y-10">
-      {supplementaryGroups.map((group) => (
-        <section id={group.id} class="scroll-mt-24">
-          <div class="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h3 class="text-xl font-semibold tracking-tight text-slate-950">{group.title}</h3>
-            </div>
-          </div>
-          <div class="min-w-0 rounded-lg border border-slate-200 bg-white px-5 shadow-soft">
-            {group.publications.map((publication, index) => (
-              <PublicationCard publication={publication} label={`${group.prefix}${index + 1}`} />
-            ))}
-          </div>
-        </section>
-      ))}
-    </div>
+    <PublicationList />
   </section>
 </BaseLayout>

@@ -2,13 +2,9 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import SectionTitle from "@components/SectionTitle.astro";
-import PublicationCard from "@components/PublicationCard.astro";
+import PublicationList from "@components/PublicationList.astro";
 import { profile } from "@data/profile";
-import { publications } from "@data/publications";
 
-const recentPublications = [...publications]
-  .sort((a, b) => b.year - a.year || Number(b.selected) - Number(a.selected) || a.title.localeCompare(b.title))
-  .slice(0, 5);
 const timelineItems = [
   ...profile.education.map((item) => ({ ...item, kind: "Education", title: item.degree, detail: item.supervisor ? `Supervisor: ${item.supervisor}` : "" })),
   ...profile.experience.map((item) => ({ ...item, kind: "Experience", title: item.role, detail: `Supervisor: ${item.supervisor}` }))
@@ -61,15 +57,10 @@ const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, ""
     </div>
   </section>
 
-  <section class="bg-white">
+  <section id="publications" class="scroll-mt-20 bg-white">
     <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <SectionTitle eyebrow="Publications" title="Publications" />
-        <a href={withBase("/publications")} class="mb-6 text-sm font-semibold text-accent-700 hover:text-accent-600">All publications</a>
-      </div>
-      <div class="border-y border-slate-200 bg-white px-1 sm:px-3">
-        {recentPublications.map((publication) => <PublicationCard publication={publication} />)}
-      </div>
+      <SectionTitle eyebrow="Research Output" title="Publications" />
+      <PublicationList />
     </div>
   </section>
 

@@ -1,0 +1,50 @@
+---
+import PublicationCard from "@components/PublicationCard.astro";
+import { publications } from "@data/publications";
+
+const sortedPublications = [...publications].sort(
+  (a, b) => b.year - a.year || a.title.localeCompare(b.title)
+);
+
+const publicationGroups = [
+  {
+    id: "journal-papers",
+    title: "Journal Papers",
+    prefix: "J",
+    items: sortedPublications.filter((publication) =>
+      ["Journal", "Chinese Journal"].includes(publication.type)
+    )
+  },
+  {
+    id: "conference-papers",
+    title: "Conference Papers",
+    prefix: "C",
+    items: sortedPublications.filter((publication) => publication.type === "Conference")
+  },
+  {
+    id: "patents",
+    title: "Patents",
+    prefix: "P",
+    items: sortedPublications.filter((publication) => publication.type === "Patent")
+  },
+  {
+    id: "monographs",
+    title: "Monographs",
+    prefix: "M",
+    items: sortedPublications.filter((publication) => publication.type === "Book")
+  }
+].filter((group) => group.items.length > 0);
+---
+
+<div class="min-w-0 space-y-10">
+  {publicationGroups.map((group) => (
+    <section id={group.id} class="scroll-mt-24">
+      <h3 class="mb-4 text-xl font-semibold tracking-tight text-slate-950">{group.title}</h3>
+      <div class="min-w-0 border-y border-slate-200 bg-white px-1 sm:px-3">
+        {group.items.map((publication, index) => (
+          <PublicationCard publication={publication} label={`${group.prefix}${index + 1}`} />
+        ))}
+      </div>
+    </section>
+  ))}
+</div>
