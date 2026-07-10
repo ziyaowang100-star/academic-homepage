@@ -7,28 +7,13 @@ import { publications } from "@data/publications";
 const sortedPublications = [...publications].sort(
   (a, b) => b.year - a.year || Number(b.selected) - Number(a.selected) || a.title.localeCompare(b.title)
 );
-const groupConfig = [
+const papers = sortedPublications.filter((publication) =>
+  ["Journal", "Conference", "Chinese Journal"].includes(publication.type)
+);
+const supplementaryGroups = [
   {
-    id: "journal-papers",
-    title: "Journal Papers",
-    prefix: "J",
-    publications: sortedPublications.filter((publication) => publication.type === "Journal")
-  },
-  {
-    id: "conference-papers",
-    title: "Conference Papers",
-    prefix: "C",
-    publications: sortedPublications.filter((publication) => publication.type === "Conference")
-  },
-  {
-    id: "chinese-journal-papers",
-    title: "Chinese Journal Papers",
-    prefix: "CN",
-    publications: sortedPublications.filter((publication) => publication.type === "Chinese Journal")
-  },
-  {
-    id: "authorized-patents",
-    title: "Authorized Patents",
+    id: "patents",
+    title: "Patents",
     prefix: "P",
     publications: sortedPublications.filter((publication) => publication.type === "Patent")
   },
@@ -45,8 +30,14 @@ const groupConfig = [
   <section class="mx-auto min-w-0 max-w-6xl overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
     <SectionTitle eyebrow="Research Output" title="Publications" />
 
-    <div class="min-w-0 space-y-10">
-      {groupConfig.map((group) => (
+    <div class="min-w-0 rounded-lg border border-slate-200 bg-white px-5 shadow-soft">
+      {papers.map((publication, index) => (
+        <PublicationCard publication={publication} label={`${index + 1}`} />
+      ))}
+    </div>
+
+    <div class="mt-10 min-w-0 space-y-10">
+      {supplementaryGroups.map((group) => (
         <section id={group.id} class="scroll-mt-24">
           <div class="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>

@@ -5,6 +5,9 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://ziyaowang100-star.github.io/academic-homepage",
   base: "/academic-homepage",
+  build: {
+    inlineStylesheets: "always"
+  },
   integrations: [
     sitemap(),
     tailwind({
