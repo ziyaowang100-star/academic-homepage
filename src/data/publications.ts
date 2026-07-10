@@ -206,7 +206,7 @@ export const publications: Publication[] = [
     type: "Chinese Journal",
     tags: ["Digital Planning", "Distribution Network Planning", "Graph-Model-Data Fusion"],
     doi: "#",
-    paperLink: "#",
+    paperLink: "https://www.aeps-info.com/aeps/article/abstract/20220223008",
     codeLink: "#",
     selected: false
   },
