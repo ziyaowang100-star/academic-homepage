@@ -28,31 +28,21 @@ export const profile = {
     university: ""
   },
   bio: [
-    "Ziyao Wang is a Postdoctoral Researcher in Electrical Engineering at the University of Macau. His research focuses on reliability and resilience assessment, digital planning, and AI-assisted decision-making for smart distribution networks.",
-    "His work integrates explicit model-based reliability assessment, mathematical optimization, artificial intelligence, and practical distribution network planning applications."
+    "My research focuses on the intelligent decision-making for modern distribution networks, integrating advanced AI and OR methods with real-world engineering applications."
   ],
   longBio:
     "He received the B.Eng. degree in Electrical Engineering and Automation from South China University of Technology in 2019 and the Doctor of Engineering degree in Electrical Engineering from South China University of Technology in 2025. He was also a joint-training PhD student at the National University of Singapore from 2024 to 2025.",
   researchInterests: [
     "Reliability and resilience assessment of distribution networks",
-    "Digital planning of smart distribution networks",
-    "Power grid planning under climate change",
-    "Distribution network planning with high renewable energy penetration",
-    "Advanced operations research and artificial intelligence methods for power systems",
-    "Explicit model-based reliability and topology-variable-based planning methods"
+    "Digital and intelligent planning of smart distribution networks",
+    "Climate-resilient power grid planning",
+    "AI-enhanced decision-making for power systems"
   ],
   education: [
     {
       institution: "South China University of Technology",
-      degree: "B.Eng. in Electrical Engineering and Automation",
-      period: "2015-2019",
-      supervisor: "Prof. Tao Yu",
-      logo: "/images/logos/scut.png"
-    },
-    {
-      institution: "South China University of Technology",
-      degree: "Doctor of Engineering in Electrical Engineering",
-      period: "2019-2025",
+      degree: "B.Eng., M.Eng., and D.Eng. in Electrical Engineering",
+      period: "2015-2025",
       supervisor: "Prof. Tao Yu",
       logo: "/images/logos/scut.png"
     },

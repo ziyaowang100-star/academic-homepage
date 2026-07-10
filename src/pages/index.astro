@@ -21,38 +21,38 @@ const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, ""
 
   <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
     <SectionTitle eyebrow="About" title="Academic Bio" />
-    <div class="max-w-5xl space-y-5 text-base leading-8 text-slate-600">
-      <p>
-        Devoted to distribution network planning and optimization with integration of cutting-edge theory and practice.
-        Focuses on implementing state-of-the-art theories and technologies into real-world engineering scenarios. Active
-        in interdisciplinary academic exchanges, core technical and scientific issues are summarized from engineering
-        practices.
+    <div class="grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
+      <p class="max-w-2xl text-lg leading-8 text-slate-600">
+        {profile.bio[0]}
       </p>
-      <p>
-        <strong class="font-semibold text-slate-950"> Research interests:</strong> reliability and resilience assessment
-        of distribution networks; digital planning of smart distribution networks; power grid planning under climate
-        change; distribution network planning with high renewable energy penetration; AI/OR-assisted decision-making for
-        power systems.
-      </p>
+      <div class="border-l-2 border-accent-100 pl-5 sm:pl-6">
+        <h3 class="text-sm font-semibold text-slate-950">Research Interests</h3>
+        <ul class="mt-4 grid gap-3 text-sm leading-6 text-slate-600 sm:grid-cols-2 lg:grid-cols-1">
+          {profile.researchInterests.map((interest) => (
+            <li class="flex gap-3">
+              <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent-600"></span>
+              <span>{interest}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="border-y border-slate-200 bg-slate-50">
     <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
       <SectionTitle eyebrow="Background" title="Experience" />
-      <section class="rounded-lg border border-slate-200 bg-white p-5 shadow-soft">
-        <ol class="space-y-6">
+      <section class="border-y border-slate-200 bg-white">
+        <ol>
           {timelineItems.map((item) => (
-            <li class="grid gap-3 border-l-2 border-accent-100 pl-4 sm:grid-cols-[140px_1fr] sm:gap-6">
-              <p class="text-sm font-medium text-accent-700">{item.period}</p>
+            <li class="grid gap-4 border-b border-slate-200 py-6 last:border-b-0 sm:grid-cols-[120px_48px_1fr] sm:items-start sm:gap-6">
+              <p class="pt-1 text-sm font-semibold text-accent-700">{item.period}</p>
+              <img src={withBase(item.logo)} alt={`${item.institution} logo`} class="h-12 w-12 rounded-full border border-slate-200 bg-white object-contain p-1.5" loading="lazy" />
               <div>
                 <p class="text-xs font-semibold uppercase tracking-widest text-slate-400">{item.kind}</p>
-                <h3 class="mt-1 flex items-center gap-3 font-semibold text-slate-950">
-                  <img src={withBase(item.logo)} alt={`${item.institution} logo`} class="h-9 w-9 rounded-full border border-slate-200 bg-white object-contain p-1" loading="lazy" />
-                  <span>{item.institution}</span>
-                </h3>
+                <h3 class="mt-1 text-base font-semibold text-slate-950">{item.institution}</h3>
                 <p class="mt-1 text-sm leading-6 text-slate-700">{item.title}</p>
-                {item.detail && <p class="text-sm leading-6 text-slate-600">{item.detail}</p>}
+                {item.detail && <p class="mt-0.5 text-sm leading-6 text-slate-500">{item.detail}</p>}
               </div>
             </li>
           ))}
@@ -67,7 +67,7 @@ const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, ""
         <SectionTitle eyebrow="Publications" title="Publications" />
         <a href={withBase("/publications")} class="mb-6 text-sm font-semibold text-accent-700 hover:text-accent-600">All publications</a>
       </div>
-      <div class="rounded-lg border border-slate-200 bg-white px-5 shadow-soft">
+      <div class="border-y border-slate-200 bg-white px-1 sm:px-3">
         {recentPublications.map((publication) => <PublicationCard publication={publication} />)}
       </div>
     </div>
