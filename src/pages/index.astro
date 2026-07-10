@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import SectionTitle from "@components/SectionTitle.astro";
 import PublicationList from "@components/PublicationList.astro";
+import ResearchContent from "@components/ResearchContent.astro";
 import { profile } from "@data/profile";
 
 const timelineItems = [
@@ -63,5 +64,7 @@ const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, ""
       <PublicationList />
     </div>
   </section>
+
+  <ResearchContent />
 
 </BaseLayout>
