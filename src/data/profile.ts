@@ -41,7 +41,7 @@ export const profile = {
   education: [
     {
       institution: "South China University of Technology",
-      degree: "B.Eng., M.Eng., and D.Eng. in Electrical Engineering",
+      degree: "B.Eng., M.Eng., and Ph.D. in Electrical Engineering",
       period: "2015-2025",
       supervisor: "Prof. Tao Yu",
       logo: "/images/logos/scut.png"
