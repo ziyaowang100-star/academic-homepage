@@ -125,10 +125,10 @@ export const publications: Publication[] = [
     year: 2026,
     volume: "30",
     pages: "101596",
-    status: "Accepted",
+    status: "Published",
     type: "Journal",
     tags: ["Reliability Assessment", "Optimization", "Distribution Network Planning"],
-    doi: "#",
+    doi: "https://doi.org/10.1016/j.ecmx.2026.101596",
     paperLink: "https://www.sciencedirect.com/science/article/pii/S2590174526000796",
     codeLink: "#",
     selected: true
