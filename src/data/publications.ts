@@ -65,6 +65,8 @@ export const publications: Publication[] = [
     authors: "Ziyao Wang, Yingrui Zhao, Wei Chen, Yusi Cheng, Jimmy Chih-Hsien Peng",
     venue: "IEEE Transactions on Sustainable Computing",
     year: 2026,
+    volume: "11(3)",
+    pages: "240-252",
     status: "Published",
     type: "Journal",
     tags: ["Reliability Assessment", "Island Microgrids", "Soft Open Point", "Optimization"],
