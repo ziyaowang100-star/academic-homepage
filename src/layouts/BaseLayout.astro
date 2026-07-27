@@ -33,7 +33,7 @@ const personJsonLd = {
   },
   knowsAbout: profile.keywords,
   url: canonical,
-  email: profile.email,
+  email: profile.emails,
   sameAs: Object.values(profile.links).filter((link) => link.startsWith("http"))
 };
 ---

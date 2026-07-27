@@ -5,13 +5,6 @@ const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, ""
 
 const contactLinks = [
   {
-    label: "Email",
-    href: `mailto:${profile.email}`,
-    icon: "email",
-    color: "text-sky-600",
-    iconBg: "bg-sky-50"
-  },
-  {
     label: "Google Scholar",
     href: profile.links.googleScholar,
     icon: "scholar",
@@ -48,23 +41,40 @@ const contactLinks = [
       <h1 class="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
         {profile.name}
       </h1>
-      <div class="mt-6 flex flex-wrap gap-x-5 gap-y-3" aria-label="Contact links">
-        {contactLinks.map((link) => (
-          <a
-            href={link.href}
-            title={link.label}
-            aria-label={link.label}
-            target={link.href.startsWith("http") ? "_blank" : undefined}
-            rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-            class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-accent-700"
-          >
-            <span class:list={["inline-flex h-7 w-7 items-center justify-center rounded", link.iconBg, link.color]}>
-              {link.icon === "email" && (
-                <svg viewBox="0 0 24 24" class="h-4.5 w-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                  <path d="m3 7 9 6 9-6"></path>
-                </svg>
-              )}
+      <div class="mt-6 space-y-4">
+        <div class="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-2" aria-label="Email addresses">
+          <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded bg-sky-50 text-sky-600" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="h-4.5 w-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m3 7 9 6 9-6"></path>
+            </svg>
+          </span>
+          <div class="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1">
+            {profile.emails.map((email, index) => (
+              <>
+                {index > 0 && <span class="hidden text-slate-300 sm:inline" aria-hidden="true">|</span>}
+                <a
+                  href={`mailto:${email}`}
+                  class="break-all text-sm font-medium text-slate-700 transition hover:text-accent-700"
+                >
+                  {email}
+                </a>
+              </>
+            ))}
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-x-5 gap-y-3" aria-label="Academic profile links">
+          {contactLinks.map((link) => (
+            <a
+              href={link.href}
+              title={link.label}
+              aria-label={link.label}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-accent-700"
+            >
+              <span class:list={["inline-flex h-7 w-7 items-center justify-center rounded", link.iconBg, link.color]}>
               {link.icon === "scholar" && (
                 <svg viewBox="0 0 24 24" class="h-4.5 w-4.5" fill="currentColor" aria-hidden="true">
                   <path d="M12 3 2 8.2l10 5.2 10-5.2L12 3Z"></path>
@@ -86,10 +96,11 @@ const contactLinks = [
                   <path d="M5 3.8A2.2 2.2 0 1 0 5 8.2 2.2 2.2 0 0 0 5 3.8ZM3.2 9.8h3.6V20H3.2V9.8ZM9 9.8h3.4v1.4h.1c.5-.9 1.7-1.7 3.4-1.7 3.6 0 4.3 2.4 4.3 5.5v5H16.6v-4.4c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V20H9V9.8Z"></path>
                 </svg>
               )}
-            </span>
-            <span>{link.label}</span>
-          </a>
-        ))}
+              </span>
+              <span>{link.label}</span>
+            </a>
+          ))}
+        </div>
       </div>
       <div class="mt-7 flex flex-wrap gap-3">
         <a href={withBase("/cv")} class="rounded bg-accent-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-600">Download CV</a>
