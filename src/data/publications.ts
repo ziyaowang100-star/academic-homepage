@@ -21,6 +21,19 @@ export type Publication = {
 
 export const publications: Publication[] = [
   {
+    title: "Distribution Network Resilience Enhancement with Coordinated Mobile V2G Stations and Electric Vehicles from Parking Lots",
+    authors: "Yushen Gong, Wencong Xiao, Tao Yu, Yufeng Wu, Zhenning Pan, Jiang Zeng, Ziyao Wang*, Ruobing Liu",
+    venue: "Scientific Reports",
+    year: 2026,
+    status: "Published",
+    type: "Journal",
+    tags: ["Resilience Assessment", "Vehicle-to-Grid", "Electric Vehicles", "Distribution Networks"],
+    doi: "https://doi.org/10.1038/s41598-026-63513-z",
+    paperLink: "https://www.nature.com/articles/s41598-026-63513-z",
+    codeLink: "#",
+    selected: true
+  },
+  {
     title: "A Fast Calculation Method for Assessing Line Fault Outage Factor in Cascading Failures",
     authors: "Pengyi Fan, Tao Yu, Zhenning Pan, Ziyao Wang*, Yufeng Wu, Wencong Xiao",
     venue: "2026 IEEE PES International Meeting (PES IM), Hong Kong, Hong Kong",
